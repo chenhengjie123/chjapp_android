@@ -1,12 +1,20 @@
 package com.chjvps.hengjiechen.chjapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.app.UiAutomation;
+
 
 
 public class MainActivity extends ActionBarActivity implements SeekBar.OnSeekBarChangeListener {
@@ -15,6 +23,9 @@ public class MainActivity extends ActionBarActivity implements SeekBar.OnSeekBar
     //declare text and seekBar
     private TextView mTvDef;
     private SeekBar mSeekBarDef;
+    private ListView mLvDef;
+    private UiAutomation uiAutomation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +36,20 @@ public class MainActivity extends ActionBarActivity implements SeekBar.OnSeekBar
         mTvDef = (TextView) findViewById(R.id.tv_def);
         mSeekBarDef = (SeekBar) findViewById(R.id.seekBar_def);
         mSeekBarDef.setOnSeekBarChangeListener(this);
+
+        mLvDef = (ListView) findViewById(R.id.lv_def);
+        mLvDef.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1,getData()));
+
+    }
+
+    private List<String> getData(){
+
+        List<String> data = new ArrayList<String>();
+        for (int i=0; i<20; i++) {
+            data.add("test view"+i);
+        }
+
+        return data;
     }
 
 

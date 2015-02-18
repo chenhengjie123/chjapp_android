@@ -21,7 +21,8 @@
         android:layout_alignParentEnd="true"
         android:max="100"
         android:progress="10"
-        android:indeterminate="false" />
+        android:indeterminate="false"
+        android:contentDescription="seekBar_def" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +30,16 @@
         android:text="@string/text_def"
         android:id="@+id/tv_def"
         android:layout_below="@+id/seekBar_def"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="text_def" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_def"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_def"
+        android:choiceMode="singleChoice"
+        android:contentDescription="lv_def" />
 
 </RelativeLayout>
